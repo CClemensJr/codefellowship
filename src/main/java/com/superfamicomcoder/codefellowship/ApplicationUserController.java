@@ -14,9 +14,5 @@ public class ApplicationUserController {
     PasswordEncoder passwordEncoder;
 
 
-    @GetMapping("signup")
-    public String getSignupPage() {
-        return "signup";
-    }
 
 }

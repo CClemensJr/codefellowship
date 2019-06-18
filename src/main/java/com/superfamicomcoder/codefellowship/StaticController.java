@@ -11,4 +11,14 @@ public class StaticController {
     public String getHomePage() {
         return "index";
     }
+
+    @GetMapping("signup")
+    public String getSignupPage() {
+        return "signup";
+    }
+
+    @GetMapping("login")
+    public String getLoginPage() {
+        return "login";
+    }
 }
