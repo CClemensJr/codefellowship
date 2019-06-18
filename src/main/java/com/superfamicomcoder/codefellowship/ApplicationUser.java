@@ -23,7 +23,7 @@ public class ApplicationUser implements UserDetails {
     String password;
     String firstName;
     String lastName;
-    String dateOfBirth;
+    Date dateOfBirth;
     String bio;
 
 
@@ -37,7 +37,7 @@ public class ApplicationUser implements UserDetails {
         this.password = password;
     }
 
-    public ApplicationUser(String username, String password, String firstName, String lastName, String dateOfBirth, String bio) {
+    public ApplicationUser(String username, String password, String firstName, String lastName, Date dateOfBirth, String bio) {
 
         this.username = username;
         this.password = password;
@@ -63,7 +63,7 @@ public class ApplicationUser implements UserDetails {
         return lastName;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -80,7 +80,7 @@ public class ApplicationUser implements UserDetails {
         this.lastName = lastName;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
