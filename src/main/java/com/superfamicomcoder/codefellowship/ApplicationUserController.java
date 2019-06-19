@@ -22,14 +22,14 @@ public class ApplicationUserController {
     PasswordEncoder passwordEncoder;
 
     @PostMapping("/signup")
-    public RedirectView createUser(String userName,
+    public RedirectView createUser(String username,
                                    String password,
                                    String firstName,
                                    String lastName,
                                    Date dateOfBirth,
                                    String bio) {
         ApplicationUser newUser = new ApplicationUser(
-                userName,
+                username,
                 passwordEncoder.encode(password),
                 firstName,
                 lastName,
