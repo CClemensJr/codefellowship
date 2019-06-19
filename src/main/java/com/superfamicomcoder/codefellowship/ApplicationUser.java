@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Collection;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -23,7 +23,7 @@ public class ApplicationUser implements UserDetails {
     String password;
     String firstName;
     String lastName;
-    Date dateOfBirth;
+    java.sql.Date dateOfBirth;
     String bio;
 
 
@@ -37,7 +37,7 @@ public class ApplicationUser implements UserDetails {
         this.password = password;
     }
 
-    public ApplicationUser(String username, String password, String firstName, String lastName, Date dateOfBirth, String bio) {
+    public ApplicationUser(String username, String password, String firstName, String lastName, java.sql.Date dateOfBirth, String bio) {
 
         this.username = username;
         this.password = password;
@@ -63,7 +63,7 @@ public class ApplicationUser implements UserDetails {
         return lastName;
     }
 
-    public Date getDateOfBirth() {
+    public java.sql.Date getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -80,7 +80,7 @@ public class ApplicationUser implements UserDetails {
         this.lastName = lastName;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(java.sql.Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
