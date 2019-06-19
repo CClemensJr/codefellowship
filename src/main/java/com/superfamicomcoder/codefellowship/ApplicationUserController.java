@@ -42,8 +42,12 @@ public class ApplicationUserController {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        // TODO: Change redirect to profile page.
-        return new RedirectView(("/"));
+        return new RedirectView(("profile"));
     }
+
+
+    @GetMapping("profile")
+    public String getProfile() { return "profile"; }
+
 
 }
