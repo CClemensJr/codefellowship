@@ -5,8 +5,13 @@
     <title>CodeFellowship | Profile</title>
 </head>
 <body>
-    <h1>Welcome, <span th:text="${ user.name }"></span></h1>
+    <h1>Welcome, <span th:text="${ currentUser.name }"></span></h1>
     <img src="https://via.placeholder.com/150" alt="">
-    <h2>Name: <span th:text="${ user.name }"></span></h2>
+    <ul>
+        <li>Name: <span th:text="${ user.getFirstName() }"></span><span th:text="${ user.getLastName() }"></span></li>
+        <li>Date of Birth: <span th:text="${ user.getDateOfBirth() }"></span></li>
+        <li>Bio: <span th:text="${ user.getBio() }"></span></li>
+    </ul>
+
 </body>
 </html>
