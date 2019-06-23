@@ -21,7 +21,7 @@
 -[X] The site should have a page which allows viewing the data about a single ApplicationUser, at a route like /users/{id}.
     -[X] This should include a default profile picture, which is the same for every user, and their basic information.
 -[X] Using the above cheat sheet, add the ability for users to log in to your app.
-    -[ ] Upon logging in, users should be taken to a /myprofile route that displays their information.
+    -[X] Upon logging in, users should be taken to a /myprofile route that displays their information.
 -[X] Ensure that your homepage, login, and registration routes are accessible to non-logged in users. All other routes should be limited to logged-in users.
 -[X] Ensure that user registration also logs users into your app automatically.
 -[ ] The site should be reasonably styled. (This can be using CSS that you did not create yourself.)
@@ -33,7 +33,7 @@
 
 #### Feature Tasks
 -[X] Using the above cheat sheet, add the ability for users to log in to your app.
-    -[ ] Upon logging in, users should be taken to a /myprofile route that displays their information.
+    -[X] Upon logging in, users should be taken to a /myprofile route that displays their information.
 -[X] Ensure that your homepage, login, and registration routes are accessible to non-logged in users. All other routes should be limited to logged-in users.
 -[X] Ensure that user registration also logs users into your app automatically.
 -[ ] Add a Post entity to your app.
