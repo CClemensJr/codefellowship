@@ -21,12 +21,7 @@ public class StaticController {
         return "signup";
     }
 
-    // Updated based on example https://hellokoding.com
-    @RequestMapping(value="/login", method = { RequestMethod.GET, RequestMethod.POST })
-    public ModelAndView getLoginPage(Model model, String error, String logout) {
-        if (error != null) model.addAttribute("error", "Your username and password is invalid.");
-        if (logout != null) model.addAttribute("message", "You have been logged out successfully");
-
-        return new ModelAndView("login");
-    }
+    // Updated based on answer at https://stackoverflow.com/questions/42206998/spring-security-405-request-method-post-not-supported
+    @RequestMapping(value = "/login", method = {RequestMethod.GET, RequestMethod.POST})
+    public ModelAndView getLoginPage(Model model, String error, String logout) { return new ModelAndView("login"); }
 }

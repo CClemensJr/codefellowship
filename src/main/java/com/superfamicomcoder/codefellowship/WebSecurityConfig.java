@@ -82,6 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/", "/login", "/signup", "/css/*").permitAll()
                     .anyRequest().authenticated()
                 .and()
+                // This part was inspired by a stack overflow answer at https://stackoverflow.com/questions/42206998/spring-security-405-request-method-post-not-supported
                 .formLogin()
                     .loginPage("/login")
                     .defaultSuccessUrl("/profile", true)
@@ -90,8 +91,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                 .and()
                 .logout();
-
-//        http.formLogin().defaultSuccessUrl("/profile", true);
     }
 
     @Override
