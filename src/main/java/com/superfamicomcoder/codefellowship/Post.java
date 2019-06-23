@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 public class Post {
@@ -12,7 +13,9 @@ public class Post {
  * */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long id;
+    private long id;
+    private String body;
+    private String timeStamp;
 
 
 
@@ -20,15 +23,20 @@ public class Post {
 /****************
  * Constructors
  * */
+    public Post() {}
 
-
+    public Post(String body) {
+        this.body = body;
+        this.timeStamp = LocalDateTime.now().toString();
+    }
 
 /****************
  * Getters / Setters
  * */
     public long getId() {
-        return id;
+        return this.id;
     }
+
 
 
 
