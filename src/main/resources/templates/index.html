@@ -7,10 +7,14 @@
 <body>
     <h1>Welcome to Code Fellowship</h1>
 
-    <a th:href="@{/signup}">Sign Up!</a>
-    <a th:href="@{/login}">Log In!</a>
-
-    <span th:if="${ user }"><a th:href="@{/profile}">Profile!</a></span>
+    <span th:if="${ user }">
+        <a th:href="@{/profile}">Profile!</a>
+        <a th:href="@{/logout}">Logout!</a>
+    </span>
+    <span th:unless="${ user }">
+        <a th:href="@{/signup}">Sign Up!</a>
+        <a th:href="@{/login}">Log In!</a>
+    </span>
 
 </body>
 </html>
