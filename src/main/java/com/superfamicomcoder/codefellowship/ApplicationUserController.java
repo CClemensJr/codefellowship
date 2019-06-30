@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -59,4 +60,12 @@ public class ApplicationUserController {
     }
 
 
+    @GetMapping("/users")
+    public String getAllUsers(Principal p, Model m) {
+        List<ApplicationUser> users = (List) applicationUserRepository.findAll();
+
+        m.addAttribute("users", users);
+
+        return "users";
+    }
 }
