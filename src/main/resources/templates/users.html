@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CodeFellowship | Users</title>
 </head>
 <body>
-    <h1>IN USERS</h1>
+    <h1>Meet other members of CodeFellowship</h1>
+
+    <div th:each="user : ${users}">
+        <img src="https://via.placeholder.com/150" alt="">
+        <p> <span th:text="${ user.getFirstName() }"></span> <span th:text="${ user.getLastName() }"></span> </p>
+        <a th:href="@{/profile}">Check out their profile!</a>
+    </div>
 </body>
 </html>
