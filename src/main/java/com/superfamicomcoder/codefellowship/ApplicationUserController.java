@@ -28,7 +28,7 @@ public class ApplicationUserController {
                                    String password,
                                    String firstName,
                                    String lastName,
-                                   java.sql.Date dateOfBirth,
+                                   String dateOfBirth,
                                    String bio) {
         ApplicationUser newUser = new ApplicationUser(
                 username,
