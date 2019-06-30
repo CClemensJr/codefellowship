@@ -47,6 +47,7 @@ import com.superfamicomcoder.codefellowship.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -78,22 +79,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors().disable()
                 .csrf().disable()
                 .authorizeRequests()
-                // allow requests to all URLS that match the patterns even if not logged in
-                .antMatchers("/", "/users", "/login", "/signup").permitAll()
-                // anything else, you must be logged in
-                .anyRequest().authenticated()
+                    .antMatchers("/", "/login", "/signup", "/css/*").permitAll()
+                    .anyRequest().authenticated()
                 .and()
+                // This part was inspired by a stack overflow answer at https://stackoverflow.com/questions/42206998/spring-security-405-request-method-post-not-supported
                 .formLogin()
-                .loginPage("/login")
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/profile", true)
+                    .loginProcessingUrl("/login")
+                    .failureUrl("/")
+                    .permitAll()
                 .and()
                 .logout();
     }
 
     @Override
     @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
+    public AuthenticationManager authenticationManagerBean() throws Exception { return super.authenticationManagerBean(); }
 
     @Bean
     public UserDetailsServiceImpl getUserDetailsService() {

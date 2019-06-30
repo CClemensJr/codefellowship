@@ -2,13 +2,9 @@ package com.superfamicomcoder.codefellowship;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Collection;
-import java.sql.Date;
+import java.util.List;
 
 @Entity
 public class ApplicationUser implements UserDetails {
@@ -17,14 +13,18 @@ public class ApplicationUser implements UserDetails {
  * */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long id;
+    private long id;
 
-    String username;
-    String password;
-    String firstName;
-    String lastName;
-    java.sql.Date dateOfBirth;
-    String bio;
+    @Column(unique = true)
+    private String username;
+    private String password;
+    private String firstName;
+    private String lastName;
+    private String dateOfBirth;
+    private String bio;
+
+    @OneToMany(mappedBy = "author")
+    private List<Post> posts;
 
 
 /****************
@@ -37,7 +37,7 @@ public class ApplicationUser implements UserDetails {
         this.password = password;
     }
 
-    public ApplicationUser(String username, String password, String firstName, String lastName, java.sql.Date dateOfBirth, String bio) {
+    public ApplicationUser(String username, String password, String firstName, String lastName, String dateOfBirth, String bio) {
 
         this.username = username;
         this.password = password;
@@ -63,7 +63,7 @@ public class ApplicationUser implements UserDetails {
         return lastName;
     }
 
-    public java.sql.Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -80,7 +80,7 @@ public class ApplicationUser implements UserDetails {
         this.lastName = lastName;
     }
 
-    public void setDateOfBirth(java.sql.Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

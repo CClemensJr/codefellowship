@@ -6,6 +6,10 @@
 </head>
 <body>
     <h1>Welcome, <span th:text="${ currentUser.name }"></span></h1>
+
+    <a th:href="@{/}">Home!</a>
+    <a th:href="@{/logout}">Logout!</a>
+
     <img src="https://via.placeholder.com/150" alt="">
     <ul>
         <li>Name: <span th:text="${ user.getFirstName() }"></span><span th:text="${ user.getLastName() }"></span></li>
@@ -13,5 +17,6 @@
         <li>Bio: <span th:text="${ user.getBio() }"></span></li>
     </ul>
 
+    <p>Find <a th:href="@{/users}">other users</a></p>
 </body>
 </html>
